@@ -11,294 +11,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- ===== Google AdSense ===== -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5643711455706264"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5643711455706264" crossorigin="anonymous"></script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #0f0f1a;
-            color: #00ffff;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.5);
-            animation: fadeIn 0.5s ease-in;
-        }
-        /* Tabs Navigation */
-        
-        .tabs-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .tab-button {
-            padding: 12px 24px;
-            background: linear-gradient(135deg, rgba(13, 13, 26, 0.8), rgba(18, 18, 31, 0.8));
-            border: 2px solid rgba(0, 255, 255, 0.3);
-            color: #00ffff;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .tab-button:hover {
-            border-color: #00ffff;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        .tab-button.active {
-            background: linear-gradient(135deg, #00ffff, #bf00ff);
-            color: #0f0f1a;
-            border-color: transparent;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-        }
-        /* Tab Content */
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease-in;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .card {
-            background: linear-gradient(135deg, rgba(13, 13, 26, 0.5), rgba(18, 18, 31, 0.5));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        /* Form Elements */
-        
-        input[type="text"],
-        input[type="number"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 12px;
-            background: rgba(18, 18, 31, 0.8);
-            border: 2px solid rgba(0, 255, 255, 0.3);
-            border-radius: 8px;
-            color: #00ffff;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-        }
-        
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        button {
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #00ffff, #bf00ff);
-            border: none;
-            border-radius: 8px;
-            color: #0f0f1a;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 5px;
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-        }
-        
-        button.secondary {
-            background: rgba(0, 255, 255, 0.2);
-            color: #00ffff;
-            border: 2px solid #00ffff;
-        }
-        
-        button.danger {
-            background: linear-gradient(135deg, #ff0055, #ff0099);
-        }
-        /* To-Do List */
-        
-        .todo-list {
-            margin-top: 20px;
-        }
-        
-        .todo-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            background: rgba(18, 18, 31, 0.6);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 8px;
-            margin-bottom: 10px;
-            transition: all 0.3s;
-        }
-        
-        .todo-item:hover {
-            border-color: #00ffff;
-        }
-        
-        .todo-item.completed {
-            opacity: 0.6;
-        }
-        
-        .todo-item.completed span {
-            text-decoration: line-through;
-        }
-        
-        .todo-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-        
-        .todo-item span {
-            flex: 1;
-        }
-        
-        .todo-item button {
-            padding: 6px 12px;
-            margin: 0;
-        }
-        /* Timer Display */
-        
-        .timer-display {
-            font-size: 4rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 30px 0;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-        }
-        /* Calculator */
-        
-        .calc-display {
-            font-size: 2rem;
-            text-align: right;
-            padding: 20px;
-            background: rgba(18, 18, 31, 0.8);
-            border: 2px solid rgba(0, 255, 255, 0.3);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            min-height: 80px;
-            word-wrap: break-word;
-        }
-        
-        .calc-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        /* QR Code */
-        
-        .qr-display {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .qr-display img {
-            max-width: 300px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            display: block;
-        }
-        /* Clock */
-        
-        .clock-display {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .clock-time {
-            font-size: 5rem;
-            font-weight: 700;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-            margin-bottom: 10px;
-        }
-        
-        .clock-date {
-            font-size: 1.5rem;
-            color: #bf00ff;
-            text-shadow: 0 0 20px rgba(191, 0, 255, 0.6);
-        }
-        /* Animations */
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* Responsive */
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .timer-display {
-                font-size: 3rem;
-            }
-            .clock-time {
-                font-size: 3rem;
-            }
-            .calc-display {
-                font-size: 1.5rem;
-            }
-        }
-        
-        .input-group {
-            margin-bottom: 15px;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+        /* Dein CSS bleibt unverändert, siehe vorheriger Code */
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Roboto',sans-serif;background:#0f0f1a;color:#00ffff;min-height:100vh;padding:20px;}
+        .container {max-width:1200px;margin:0 auto;}
+        h1 {text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:30px;text-shadow:0 0 20px rgba(0,255,255,0.8),0 0 40px rgba(0,255,255,0.5);animation:fadeIn 0.5s ease-in;}
+        .tabs-nav {display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px;}
+        .tab-button {padding:12px 24px;background:linear-gradient(135deg,rgba(13,13,26,0.8),rgba(18,18,31,0.8));border:2px solid rgba(0,255,255,0.3);color:#00ffff;font-size:1rem;font-weight:500;cursor:pointer;border-radius:12px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);backdrop-filter:blur(10px);}
+        .tab-button:hover {border-color:#00ffff;box-shadow:0 0 20px rgba(0,255,255,0.5);transform:translateY(-2px);}
+        .tab-button.active {background:linear-gradient(135deg,#00ffff,#bf00ff);color:#0f0f1a;border-color:transparent;box-shadow:0 0 30px rgba(0,255,255,0.6);}
+        .tab-content {display:none;animation:fadeIn 0.3s ease-in;}
+        .tab-content.active {display:block;}
+        .card {background:linear-gradient(135deg,rgba(13,13,26,0.5),rgba(18,18,31,0.5));backdrop-filter:blur(10px);border:1px solid rgba(0,255,255,0.2);border-radius:16px;padding:30px;box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+        input[type="text"],input[type="number"],textarea,select {width:100%;padding:12px;background:rgba(18,18,31,0.8);border:2px solid rgba(0,255,255,0.3);border-radius:8px;color:#00ffff;font-family:'Roboto',sans-serif;font-size:1rem;transition:all 0.3s;}
+        input:focus,textarea:focus,select:focus {outline:none;border-color:#00ffff;box-shadow:0 0 15px rgba(0,255,255,0.3);}
+        textarea {resize:vertical;min-height:150px;}
+        button {padding:12px 24px;background:linear-gradient(135deg,#00ffff,#bf00ff);border:none;border-radius:8px;color:#0f0f1a;font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.3s;margin:5px;}
+        button:hover {transform:translateY(-2px);box-shadow:0 0 20px rgba(0,255,255,0.6);}
+        button.secondary {background:rgba(0,255,255,0.2);color:#00ffff;border:2px solid #00ffff;}
+        button.danger {background:linear-gradient(135deg,#ff0055,#ff0099);}
+        .todo-list {margin-top:20px;}
+        .todo-item {display:flex;align-items:center;gap:10px;padding:12px;background:rgba(18,18,31,0.6);border:1px solid rgba(0,255,255,0.2);border-radius:8px;margin-bottom:10px;transition:all 0.3s;}
+        .todo-item:hover {border-color:#00ffff;}
+        .todo-item.completed {opacity:0.6;}
+        .todo-item.completed span {text-decoration:line-through;}
+        .todo-item input[type="checkbox"] {width:20px;height:20px;cursor:pointer;}
+        .todo-item span {flex:1;}
+        .todo-item button {padding:6px 12px;margin:0;}
+        .timer-display {font-size:4rem;font-weight:700;text-align:center;margin:30px 0;text-shadow:0 0 30px rgba(0,255,255,0.8);}
+        .calc-display {font-size:2rem;text-align:right;padding:20px;background:rgba(18,18,31,0.8);border:2px solid rgba(0,255,255,0.3);border-radius:8px;margin-bottom:20px;min-height:80px;word-wrap:break-word;}
+        .calc-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:20px;}
+        .qr-display {text-align:center;margin-top:20px;}
+        .qr-display img {max-width:300px;margin:20px auto;padding:20px;background:white;border-radius:12px;display:block;}
+        .clock-display {text-align:center;margin:30px 0;}
+        .clock-time {font-size:5rem;font-weight:700;text-shadow:0 0 30px rgba(0,255,255,0.8);margin-bottom:10px;}
+        .clock-date {font-size:1.5rem;color:#bf00ff;text-shadow:0 0 20px rgba(191,0,255,0.6);}
+        @keyframes fadeIn {from {opacity:0;transform:translateY(10px);}to {opacity:1;transform:translateY(0);}}
+        @media (max-width:768px){h1{font-size:2rem}.timer-display{font-size:3rem}.clock-time{font-size:3rem}.calc-display{font-size:1.5rem}}
+        .input-group{margin-bottom:15px}
+        .button-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
     </style>
 </head>
 
@@ -308,21 +62,241 @@
 
         <!-- Tabs Navigation -->
         <div class="tabs-nav">
-            <button class="tab-button active" onclick="showTab('notizen')">📝 Notizen</button>
-            <button class="tab-button" onclick="showTab('todo')">✅ To-Do</button>
-            <button class="tab-button" onclick="showTab('timer')">⏱️ Timer</button>
-            <button class="tab-button" onclick="showTab('rechner')">🔢 Rechner</button>
-            <button class="tab-button" onclick="showTab('qrcode')">📱 QR-Code</button>
-            <button class="tab-button" onclick="showTab('uhr')">🕐 Uhr</button>
+            <button class="tab-button active" onclick="showTab(event,'notizen')">📝 Notizen</button>
+            <button class="tab-button" onclick="showTab(event,'todo')">✅ To-Do</button>
+            <button class="tab-button" onclick="showTab(event,'timer')">⏱️ Timer</button>
+            <button class="tab-button" onclick="showTab(event,'rechner')">🔢 Rechner</button>
+            <button class="tab-button" onclick="showTab(event,'qrcode')">📱 QR-Code</button>
+            <button class="tab-button" onclick="showTab(event,'uhr')">🕐 Uhr</button>
         </div>
 
-        <!-- Tab Contents ... (rest deines Codes bleibt identisch) -->
+        <!-- Tab Contents -->
+        <div id="notizen" class="tab-content active">
+            <div class="card">
+                <h2>📝 Notizen</h2>
+                <div class="input-group">
+                    <textarea id="notizen-text" placeholder="Schreibe deine Notizen hier..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button onclick="saveNotes()">💾 Speichern</button>
+                    <button class="secondary" onclick="clearNotes()">🗑️ Löschen</button>
+                </div>
+            </div>
+        </div>
 
+        <div id="todo" class="tab-content">
+            <div class="card">
+                <h2>✅ To-Do-Liste</h2>
+                <div class="input-group">
+                    <input type="text" id="todo-input" placeholder="Neue Aufgabe eingeben...">
+                </div>
+                <button onclick="addTodo()">➕ Hinzufügen</button>
+                <div class="todo-list" id="todo-list"></div>
+            </div>
+        </div>
+
+        <div id="timer" class="tab-content">
+            <div class="card">
+                <h2>⏱️ Pomodoro Timer</h2>
+                <div class="input-group">
+                    <label>Minuten:</label>
+                    <input type="number" id="timer-minutes" value="25" min="1" max="999">
+                </div>
+                <div class="timer-display" id="timer-display">25:00</div>
+                <div class="button-group">
+                    <button onclick="startTimer()">▶️ Start</button>
+                    <button class="secondary" onclick="stopTimer()">⏸️ Stop</button>
+                    <button class="danger" onclick="resetTimer()">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="rechner" class="tab-content">
+            <div class="card">
+                <h2>🔢 Rechner</h2>
+                <div class="calc-display" id="calc-display">0</div>
+                <div class="calc-grid">
+                    <div class="input-group">
+                        <label>Zahl 1:</label>
+                        <input type="number" id="calc-num1" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label>Zahl 2:</label>
+                        <input type="number" id="calc-num2" placeholder="0">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button onclick="calculate('+')">➕ Addition</button>
+                    <button onclick="calculate('-')">➖ Subtraktion</button>
+                    <button onclick="calculate('*')">✖️ Multiplikation</button>
+                    <button onclick="calculate('/')">➗ Division</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="qrcode" class="tab-content">
+            <div class="card">
+                <h2>📱 QR-Code Generator</h2>
+                <div class="input-group">
+                    <input type="text" id="qr-input" placeholder="Text für QR-Code eingeben...">
+                </div>
+                <button onclick="generateQR()">🔲 QR-Code generieren</button>
+                <div class="qr-display" id="qr-display"></div>
+            </div>
+        </div>
+
+        <div id="uhr" class="tab-content">
+            <div class="card">
+                <h2>🕐 Echtzeit-Uhr</h2>
+                <div class="clock-display">
+                    <div class="clock-time" id="clock-time">00:00:00</div>
+                    <div class="clock-date" id="clock-date">Datum</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // ===== Hier bleibt dein gesamtes JavaScript unverändert =====
-    </script>
-</body>
+        // ===== TAB NAVIGATION =====
+        function showTab(event, tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
 
-</html>
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // ===== NOTIZEN =====
+        function loadNotes() {
+            const notes = localStorage.getItem('notes') || '';
+            document.getElementById('notizen-text').value = notes;
+        }
+
+        function saveNotes() {
+            const notes = document.getElementById('notizen-text').value;
+            localStorage.setItem('notes', notes);
+            alert('✅ Notizen gespeichert!');
+        }
+
+        function clearNotes() {
+            if (confirm('Möchtest du die Notizen wirklich löschen?')) {
+                document.getElementById('notizen-text').value = '';
+                localStorage.removeItem('notes');
+            }
+        }
+
+        // ===== TO-DO LISTE =====
+        let todos = [];
+
+        function loadTodos() {
+            const saved = localStorage.getItem('todos');
+            todos = saved ? JSON.parse(saved) : [];
+            renderTodos();
+        }
+
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        function addTodo() {
+            const input = document.getElementById('todo-input');
+            const text = input.value.trim();
+            if (text) {
+                todos.push({id: Date.now(), text: text, completed: false});
+                input.value = '';
+                saveTodos();
+                renderTodos();
+            }
+        }
+
+        function toggleTodo(id) {
+            const todo = todos.find(t => t.id === id);
+            if (todo) {todo.completed = !todo.completed; saveTodos(); renderTodos();}
+        }
+
+        function deleteTodo(id) {
+            todos = todos.filter(t => t.id !== id);
+            saveTodos();
+            renderTodos();
+        }
+
+        function renderTodos() {
+            const list = document.getElementById('todo-list');
+            list.innerHTML = '';
+            todos.forEach(todo => {
+                const div = document.createElement('div');
+                div.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+                div.innerHTML = `
+                    <input type="checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo(${todo.id})">
+                    <span>${todo.text}</span>
+                    <button class="danger" onclick="deleteTodo(${todo.id})">🗑️</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        // ===== TIMER =====
+        let timerInterval = null;
+        let timeLeft = 0;
+
+        function startTimer() {
+            if (timerInterval) return;
+            const minutes = parseInt(document.getElementById('timer-minutes').value) || 25;
+            timeLeft = minutes * 60;
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {stopTimer(); alert('⏰ Timer abgelaufen!'); return;}
+                timeLeft--; updateTimerDisplay();
+            }, 1000);
+        }
+
+        function stopTimer() {if(timerInterval){clearInterval(timerInterval);timerInterval=null;}}
+        function resetTimer(){stopTimer(); const minutes=parseInt(document.getElementById('timer-minutes').value)||25;timeLeft=minutes*60;updateTimerDisplay();}
+        function updateTimerDisplay(){const minutes=Math.floor(timeLeft/60);const seconds=timeLeft%60;document.getElementById('timer-display').textContent=`${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;}
+
+        // ===== RECHNER =====
+        function calculate(operator){
+            const num1=parseFloat(document.getElementById('calc-num1').value)||0;
+            const num2=parseFloat(document.getElementById('calc-num2').value)||0;
+            let result=0;
+            switch(operator){case '+':result=num1+num2;break;case '-':result=num1-num2;break;case '*':result=num1*num2;break;case '/':result=num2!==0?num1/num2:'Fehler: Division durch 0';break;}
+            document.getElementById('calc-display').textContent=result;
+        }
+
+        // ===== QR-CODE =====
+        function generateQR(){
+            const text=document.getElementById('qr-input').value.trim();
+            const display=document.getElementById('qr-display');
+            if(!text){display.innerHTML='<p style="color:#ff0055;">❌ Bitte Text eingeben!</p>'; return;}
+            const encodedText=encodeURIComponent(text);
+            const qrUrl=`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodedText}`;
+            display.innerHTML=`<img src="${qrUrl}" alt="QR Code"><p style="margin-top:15px;color:#00ffff;">✅ QR-Code erfolgreich generiert!</p>`;
+        }
+
+        // ===== UHR =====
+        function updateClock(){
+            const now=new Date();
+            const hours=now.getHours().toString().padStart(2,'0');
+            const minutes=now.getMinutes().toString().padStart(2,'0');
+            const seconds=now.getSeconds().toString().padStart(2,'0');
+            const days=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+            const months=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+            const dayName=days[now.getDay()];
+            const day=now.getDate();
+            const month=months[now.getMonth()];
+            const year=now.getFullYear();
+            document.getElementById('clock-time').textContent=`${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock-date').textContent=`${dayName}, ${day}. ${month} ${year}`;
+        }
+
+        // ===== INITIALIZATION =====
+        window.addEventListener('load',()=>{
+            loadNotes();
+            loadTodos();
+            resetTimer();
+            updateClock();
+            setInterval(updateClock,1000);
+            document.getElementById('todo-input').addEventListener('keypress', (e)=>{if(e.key==='Enter') addTodo();});
+            document.getElementById('qr-input').
